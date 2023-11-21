@@ -32,7 +32,6 @@ normative:
 informative:
 
   RFC8713:
-  RFC9389:
   Vervoe:
     target: https://vervoe.com/gender-discrimination-in-hiring-practices/
     title: Gender Discrimination in Hiring Practices
@@ -42,27 +41,28 @@ informative:
 
 --- abstract
 
-This document extends the existing limit on nomcom representation by company in order to improve gender diversity by ensuring that not all voting members of the IETF Nominating Committee (nomcom) belong to the same gender.
+This document extends the existing limit on Nomcom representation by company in order to improve gender diversity by ensuring that not all voting members of the IETF Nominating Committee (Nomcom) belong to the same gender.
 
 --- middle
 
 # Introduction
 
-The literature supports the claims that lack of gender diversity in hiring teams reinforce under representation of gender minorities in leadership positions and that lack of gender diversity in leadership perpetuates gender discrimination [Vervoe].
+The literature supports the claims that lack of gender diversity in hiring teams reinforces underrepresentation of gender minorities in leadership positions and that lack of gender diversity in leadership perpetuates gender discrimination [Vervoe].
 
 # Gender Representation in the IETF Nomcom
 
-The IETF considers influence and weaknesses in nomcom selection in [RFC8713]. Likewise, gender diversity in IETF leadership should be considered a community strengthening exercise insofar as gender diversity has been shown to lead to more productivity, creativity and reinforces a culture of respect and value for all participants. If we consider the nomcom as a "team", it will itself benefit from having more gender diversity among its voting members.
+The IETF considers influence and weaknesses in Nomcom selection in [RFC8713]. Likewise, gender diversity in IETF leadership should be considered a community strengthening exercise insofar as gender diversity has been shown to lead to more productivity, creativity and reinforces a culture of respect and value for all participants. If we consider the Nomcom as a "team", it will itself benefit from having more gender diversity among its voting members.
 
-To address gender representation in the IETF nomcom, we need only ensure that all voting members are not of the same gender. All attempts to ensure gender representation in the nomcom should include:
-    a. increase participation in the community from women and non-binary individuals so that the eligible pool is more gender diverse.
-    b. encourage eligible women and non-binary members of the community to accept selection to the nomcom.
-
+To address gender representation in the IETF Nomcom, we need only ensure that all voting members are not of the same gender. All attempts to ensure gender representation in the Nomcom should include:
+<ol type="a">
+<li>increasing participation in the community from women and non-binary individuals so that the eligible pool is more gender diverse.</li>
+<li>encouraging eligible women and non-binary members of the community to accept selection to the Nomcom.</li>
+</ol>
 While the IETF does not routinely confirm the gender of volunteers, we have committed to improving gender diversity in the community by way of measuring it and identifying concrete steps to mitigate imbalance.
 
 # Suggested Remedy
 
-The “two-per-organisation limit” can easily be extended to ensure a nomcom consisting of no more than n-1 members from any one gender (where n is the number of available volunteer slots), requiring skips for the nth slot until a gender minority volunteer is chosen.
+The “two-per-organisation limit” can easily be extended to ensure a Nomcom consisting of no more than n-1 members from any one gender (where n is the number of available volunteer slots), requiring skips for the nth slot until a gender minority volunteer is chosen.
 
 This assumes that for any given pool therein contains at least one gender minority volunteer.
 
@@ -80,4 +80,4 @@ This document has no IANA actions.
 
 # Acknowledgments
 
-Thanks to Martin Thompson and Suresh Krishnan for informed initial thoughts on bringing this idea to the community.
+Thanks to Martin Thomson and Suresh Krishnan for informed initial thoughts on bringing this idea to the community.
