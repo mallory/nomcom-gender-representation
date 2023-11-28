@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-11-26T01:00:18.875321+00:00",
+  "timestamp": "2023-11-28T00:58:06.425803+00:00",
   "repo": "mallory/nomcom-gender-representation",
   "labels": [
     {
@@ -49,7 +49,40 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 3,
+      "id": "I_kwDOKuSqLM53379i",
+      "title": "Empty pool",
+      "url": "https://github.com/mallory/nomcom-gender-representation/issues/3",
+      "state": "OPEN",
+      "author": "mallory",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": ">> I would like the document to deal with what happens if one gets to the\n    >> end of the pool and there are still empty slots.\n\n    > I think you have to withdraw the new rule, and accept that all ten will\n    > have the same gender that year.\n\nThat may be the answer; the document should say so.",
+      "createdAt": "2023-11-26T18:27:43Z",
+      "updatedAt": "2023-11-26T18:27:43Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 4,
+      "id": "I_kwDOKuSqLM5338I7",
+      "title": "Bare minimum",
+      "url": "https://github.com/mallory/nomcom-gender-representation/issues/4",
+      "state": "OPEN",
+      "author": "mallory",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": ">     To address gender representation in the IETF nomcom, we need only\n> ensure that all voting members are not of the same gender.\n>\n> I find the \"need only\" a bit odd. We need to do a whole lot of things to\n> address gender representation in the IETF nomcom.\n>\nSure-- I list a couple others in the main matter. I think I meant this\nas a bare minimum. I can restate it better in the -01.",
+      "createdAt": "2023-11-26T18:29:41Z",
+      "updatedAt": "2023-11-26T18:29:41Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
   "pulls": [
     {
       "number": 1,
