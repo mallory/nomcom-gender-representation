@@ -67,7 +67,7 @@ While the IETF does not routinely confirm the gender of volunteers, we have comm
 
 The “two-per-organisation limit” can easily be extended to ensure a nomcom consisting of no more than n-1 members from any one gender (where n is the number of available volunteer slots), requiring skips for the nth slot until a gender minority volunteer is chosen.
 
-This assumes that for any given pool therein contains at least one gender minority volunteer.
+This assumes that for any given pool therein contains at least one gender minority volunteer. If there does not exist one gender minority volunteer in a given year's pool, this rule is withdrawn and the community should be notified of this reason that all ten nomcom volunteers will have the same gender that year.
 
 This short remedy might update [RFC8713].
 
