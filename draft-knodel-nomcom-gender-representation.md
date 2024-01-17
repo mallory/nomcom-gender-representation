@@ -57,7 +57,7 @@ The literature supports the claims that lack of gender diversity in hiring teams
 
 The IETF considers influence and weaknesses in nomcom selection in [RFC8713]. Likewise, gender diversity in IETF leadership should be considered a community strengthening exercise insofar as gender diversity has been shown to lead to more productivity, creativity and reinforces a culture of respect and value for all participants. If we consider the nomcom as a "team", it will itself benefit from having more gender diversity among its voting members.
 
-To address gender representation in the IETF nomcom, we need only ensure that all voting members are not of the same gender. All attempts to ensure gender representation in the nomcom should include:
+To address gender representation in the IETF nomcom, at a minimum we can ensure that all voting members are not of the same gender. All attempts to ensure gender representation in the nomcom should include:
     a. increase participation in the community from women and non-binary individuals so that the eligible pool is more gender diverse.
     b. encourage eligible women and non-binary members of the community to accept selection to the nomcom.
 
