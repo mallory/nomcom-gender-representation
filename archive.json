@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-08-04T01:08:25.773177+00:00",
+  "timestamp": "2024-08-06T01:03:43.662655+00:00",
   "repo": "mallory/nomcom-gender-representation",
   "labels": [
     {
@@ -80,6 +80,22 @@
       "createdAt": "2023-11-26T18:29:41Z",
       "updatedAt": "2024-01-17T16:59:55Z",
       "closedAt": "2024-01-17T16:59:55Z",
+      "comments": []
+    },
+    {
+      "number": 5,
+      "id": "I_kwDOKuSqLM6R8PAM",
+      "title": "Carolina's review",
+      "url": "https://github.com/mallory/nomcom-gender-representation/issues/5",
+      "state": "OPEN",
+      "author": "mallory",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Comes from a presentation at RASPRG from the Canadian Standardisation Agency.\r\nhttps://datatracker.ietf.org/meeting/120/materials/slides-120-rasprg-one-size-does-not-fit-all-why-gender-matters-in-standards-development",
+      "createdAt": "2024-08-05T12:53:22Z",
+      "updatedAt": "2024-08-05T12:53:22Z",
+      "closedAt": null,
       "comments": []
     }
   ],
