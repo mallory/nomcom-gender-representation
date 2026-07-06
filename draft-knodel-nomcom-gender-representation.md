@@ -57,7 +57,7 @@ informative:
       org: ICANN
     date: 2021
   Bohnet2016:
-    target: https://hbr.org/2016/04/how-to-take-bias-out-of-interviews
+    target: https://hbr.org/2016/04/how-to-take-the-bias-out-of-interviews
     title: How to Take the Bias Out of Interviews
     author:
       ins: I. Bohnet
