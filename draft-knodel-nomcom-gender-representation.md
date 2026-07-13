@@ -75,9 +75,9 @@ The nomcom is, in every functional sense, a hiring committee: it solicits candid
 
 This document extends RFC 8713 in two ways.
 
-It extends the limit on nomcom representation by organization to ensure no noncom is ever composed of one gender. This is because the literature supports the claims that lack of gender diversity in hiring teams reinforces under representation of gender minorities in leadership positions and that lack of gender diversity in leadership perpetuates gender discrimination [Vervoe].  
+It extends the limit on nomcom representation by organization to ensure no nomcom is ever composed of one gender. This is because the literature supports the claims that lack of gender diversity in hiring teams reinforces under representation of gender minorities in leadership positions and that lack of gender diversity in leadership perpetuates gender discrimination [Vervoe].  
 
-It also adds additional considerations for the operation of the noncom by documenting conduct standards for non-discrimination, personal conflict of interest, and conformant evaluations, which are on par with today's industry standards.
+It also adds additional considerations for the operation of the nomcom by documenting conduct standards for non-discrimination, personal conflict of interest, and conformant evaluations, which are on par with today's industry standards.
 
 # Composition of the IETF Nomcom
 
@@ -139,4 +139,4 @@ This document has no IANA actions.
 
 # Acknowledgments
 
-Thanks to Martin Thompson and Suresh Krishnan for informed initial thoughts on bringing this idea to the community.
+Thanks to Martin Thomson and Suresh Krishnan for informed initial thoughts on bringing this idea to the community.
