@@ -29,8 +29,8 @@ venue:
 author:
  -
     fullname: Mallory Knodel
-    organization: Center for Democracy and Technology
-    email: mknodel@cdt.org
+    organization: NYU
+    email: mallory.knodel@nyu.edu
 
 normative:
 
