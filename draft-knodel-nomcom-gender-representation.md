@@ -29,6 +29,10 @@ author:
     fullname: Mallory Knodel
     organization: NYU
     email: mallory.knodel@nyu.edu
+ -
+    fullname: Tara Tarakiyee
+    organization: Independent
+    email: me@tarakiyee.com
 
 normative:
 
