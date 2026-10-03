@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="en" class="Internet-Draft">
+<head>
+<meta charset="utf-8">
+<meta content="Common,Latin" name="scripts">
+<meta content="initial-scale=1.0" name="viewport">
+<title>Gender Representation in the IETF Nominating Committees</title>
+<meta content="Mallory Knodel" name="author">
+<meta content="Tara Tarakiyee" name="author">
+<meta content="
+       This document extends the existing limit on nomcom representation by organization ( , Section 4.17) so that not all voting members of the IETF Nominating Committee (nomcom) belong to the same gender. It guarantees up to three voting seats to volunteers who opt into a self-declared pool, and changes the selection only in years when a plain random draw would seat fewer. 
+    " name="description">
+<meta content="xml2rfc 3.34.1" name="generator">
+<meta content="gender" name="keyword">
+<meta content="draft-knodel-nomcom-gender-representation-latest" name="ietf.draft">
+<!-- Generator version information:
+  xml2rfc 3.34.1
+    Python 3.14.8
+    ConfigArgParse 1.8.0
+    google-i18n-address 3.1.1
+    intervaltree 3.2.1
+    Jinja2 3.1.6
+    lxml 6.1.1
+    natsort 8.4.0
+    platformdirs 4.12.2
+    pycountry 24.6.1
+    PyYAML 6.0.3
+    requests 2.33.1
+    wcwidth 0.9.1
+-->
+<link href="draft-knodel-nomcom-gender-representation.xml" rel="alternate" type="application/rfc+xml">
+<link href="#copyright" rel="license">
+<style type="text/css">@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-cyrillic.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-cyrillic.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Lora SemiBold'), local('Lora-SemiBold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-semibold-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Oxygen Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Oxygen Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-greek.woff2') format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-greek.woff2') format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  color-scheme: light dark;
+  --background-color: #fff;
+  --text-color: #222;
+  --title-color: #191919;
+  --link-color: #2a6496;
+  --highlight-color: #f9f9f9;
+  --line-color: #eee;
+  --pilcrow-weak: #ddd;
+  --pilcrow-strong: #bbb;
+  --small-font-size: 14.5px;
+  --font-mono: 'Oxygen Mono', monospace;
+  --font-title: "Sofia Sans Semi Condensed", sans-serif;
+  scrollbar-color: #bbb #eee;
+}
+body {
+  max-width: 600px;
+  margin: 75px auto;
+  padding: 0 5px;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  font: 16px/22px "Lora", serif;
+  scroll-behavior: smooth;
+}
+
+.ears {
+  display: none;
+}
+
+/* headings */
+section {
+  clear: both;
+}
+.section-number {
+  padding-right: 0.5em;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-title);
+  font-weight: 680;
+  margin: 0.8em 0 0.3em;
+  font-size-adjust: 0.5;
+  color: var(--title-color);
+}
+h1 {
+  &#title {
+    font-size: 32px;
+    line-height: 40px;
+    clear: both;
+    margin: 1.5em 0 0.2em;
+  }
+  &#rfcnum {
+    margin: 1.5em 0 0.2em;
+    & + h1#title {
+      margin: 0.2em 0;
+    }
+  }
+}
+
+h1, h2, h3 {
+  font-size: 22px;
+  line-height: 27px;
+}
+h4, h5, h6 {
+  font-size: 20px;
+  line-height: 24px;
+}
+
+/* general structure */
+.author {
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+#abstract+p {
+  font-size: 18px;
+  line-height: 24px;
+  & code, & samp, & tt {
+    font-size: 16px;
+    line-height: 0;
+  }
+}
+
+p {
+  padding: 0;
+  margin: 0.5em 0;
+  text-align: left;
+}
+div {
+  margin: 0;
+}
+.alignRight {
+  margin: 1em 0;
+  &.art-text {
+    background-color: var(--highlight-color);
+    border: 1px solid var(--line-color);
+    border-radius: 3px;
+    padding: 0.5em 1em 0;
+    margin-bottom: 0.5em;
+    & pre {
+      padding: 0;
+      width: auto;
+    }
+  }
+  & > *:first-child {
+    border: none;
+    margin: 0;
+    float: right;
+    clear: both;
+  }
+  & > *:nth-child(2) {
+    clear: both;
+    display: block;
+    border: none;
+  }
+}
+svg {
+  display: block;
+  /* font-family isn't space-separated, but =~ will have to do */
+  &[font-family~="monospace" i], & [font-family~="monospace" i] {
+    font-family: var(--font-mono);
+  }
+}
+.alignCenter {
+  margin: 1em 0;
+  &.art-text {
+    background-color: var(--highlight-color);
+    border: 1px solid var(--line-color);
+    border-radius: 3px;
+    padding: 0.5em 1em 0;
+    margin-bottom: 0.5em;
+    & pre {
+      padding: 0;
+      width: auto;
+    }
+  }
+  & > *:first-child {
+    border: none;
+    /* this isn't optimal, but it's an existence proof.  PrinceXML doesn't
+       support flexbox yet.
+    */
+    display: table;
+    margin: 0 auto;
+  }
+}
+
+/* lists */
+ol, ul {
+  padding: 0;
+  margin: 0 0 0.5em 2em;
+  & :is(ol, ul) {
+    margin-left: 1em;
+  }
+}
+li {
+  margin: 0 0 0.25em 0;
+}
+ul.empty, .ulEmpty {
+  list-style-type: none;
+  & li {
+    margin-top: 0.5em;
+  }
+}
+:is(ul, ol).compact, .ulCompact, .olCompact {
+  margin: 0 0 0 2em;
+  & li {
+    margin: 0;
+    & :first-child { margin-top: 0; }
+    & :last-child { margin-bottom: 0; }
+  }
+}
+
+/* definition lists */
+dl {
+  clear: left;
+  --indent: 3ch;
+  /* --indent: attr(indent ch); not supported in any browser, but we can dream */
+  &.olPercent {
+    --indent: 5ch;
+    & > dt {
+      min-width: calc(var(--indent) - 2ch);
+      float: none;
+    }
+  }
+
+  dl > dd > & {
+    margin-top: 0.5em;
+    margin-bottom: 0;
+  }
+
+  &:not(.dlNewline) > dt {
+    float: left;
+    margin-right: 2ch;
+    min-width: 8ch;
+  }
+  & > dd {
+    margin-bottom: .8em;
+    margin-left: var(--indent) !important; /* stupid element overrides */
+    min-height: 2ex;
+  }
+}
+:is(dl.compact, .dlCompact) > dd {
+  margin-bottom: 0;
+  & > :is(:first-child, .break:first-child + *) {
+    margin-top: 0;
+  }
+  & > :is(:last-child) {
+    margin-bottom: 0;
+  }
+}
+:is(dd, span).break {
+  display: none;
+}
+
+/* links */
+a {
+  text-decoration: none;
+  &[href] {
+    color: var(--link-color);
+    &:hover { text-decoration: underline; }
+    &.selfRef {
+      color: var(--text-color);
+      &:hover {
+        text-decoration: none;
+        background-color: var(--highlight-color);
+      }
+    }
+  }
+}
+.iref + a[href].internal {
+  color: var(--text-color);
+}
+a.xref:is(.cite, .auto), :is(#status-of-memo, #copyright) a {
+  white-space: nowrap;
+}
+
+/* Figures */
+tt, code, pre {
+  background-color: var(--highlight-color);
+  font: 14px/22px var(--font-mono);
+}
+tt, code {
+  /* changing the font for inline elements leads to different ascender
+     and descender heights; as we want to retain baseline alignment,
+     remove leading to avoid altering the final height of lines
+     note: this fails if these blocks take an entire line,
+     a different solution would be great */
+  line-height: 0;
+}
+:is(h1, h2, h3, h4, h5, h6) :is(tt, code) {
+  font-size: 84%;
+}
+pre {
+  border: 1px solid var(--line-color);
+  font-size: 13.5px;
+  line-height: 16px;
+  letter-spacing: -0.2px;
+  margin: 5px;
+  padding: 5px;
+}
+img {
+  max-width: 100%;
+}
+figure {
+  margin: 0.5em 0;
+  padding: 0;
+  & blockquote {
+    margin: 0.8em 0.4em 0.4em;
+  }
+}
+figcaption, caption {
+  font-style: italic;
+  margin: 0.5em 1.5em;
+  text-align: left;
+  caption-side: bottom;
+}
+@media screen {
+  /* Auto-collapse boilerplate. */
+  :is(#status-of-memo, #copyright) {
+    & p {
+      margin: -2px 0;
+      max-height: 0;
+      transition: max-height 2s ease, margin 0.5s ease 0.5s;
+      overflow: hidden;
+    }
+    &:hover p,
+    & h2:target ~ p {
+      margin: 0.5em 0;
+      max-height: 500px;
+      overflow: auto;
+    }
+  }
+  pre, svg {
+    display: inline-block;
+    /* In the horizontal direction, sometimes people make over-sized figures.
+       Scrollbars for those is therefore necessary: auto adds them as necessary..
+       In the vertical direction, the line-height can combine with the font
+       asender/descender height to produce scrollbars: hidden avoids that. */
+    overflow: auto hidden;
+  }
+  pre {
+    max-width: 100%;
+    width: calc(100% - 22px - 1em);
+  }
+  svg {
+    max-width: calc(100% - 22px - 1em);
+  }
+  figure pre {
+    display: block;
+    width: calc(100% - 25px);
+  }
+  :is(pre, svg) + .pilcrow {
+    display: inline-block;
+    vertical-align: text-bottom;
+    padding-bottom: 8px;
+  }
+}
+
+/* aside, blockquote */
+aside, blockquote {
+  margin-left: 0;
+  padding: 0 2em;
+  font-style: italic;
+}
+blockquote {
+  margin: 1em 0;
+  border-left: 2px var(--pilcrow-strong) solid;
+}
+cite {
+  display: block;
+  text-align: right;
+  font-style: italic;
+}
+
+/* tables */
+table {
+  width: auto;
+  max-width: 100%;
+  margin: 0 0 1em;
+  border-collapse: collapse;
+  &.right { margin-left: auto; }
+  &.center { margin-left: auto; margin-right: auto; }
+  &.left { margin-right: auto; }
+  & .text-left { text-align: left; }
+  & .text-center { text-align: center; }
+  & .text-right { text-align: right; }
+  & caption {
+    margin: 0;
+    padding: 3px 0 3px 1em;
+  }
+  & p { margin: 0; }
+}
+
+thead, tbody {
+  border: 1px solid var(--line-color);
+}
+th, td {
+  text-align: left;
+  vertical-align: top;
+  padding: 5px 10px;
+}
+th {
+  background-color: var(--line-color);
+}
+:is(tr:nth-child(2n), thead+tbody > tr:nth-child(2n+1)) > td {
+  background-color: var(--background-color);
+}
+:is(tr:nth-child(2n+1), thead+tbody > tr:nth-child(2n)) > td {
+  background-color: var(--highlight-color);
+}
+
+/* pilcrow */
+a.pilcrow {
+  margin-left: 3px;
+  opacity: 0.2;
+  user-select: none;
+  &[href] {
+    color: var(--pilcrow-weak);
+    &:hover { text-decoration: none; }
+  }
+  @media not print {
+    :hover > &, &:focus {
+      opacity: 1;
+    }
+    &[href]:hover {
+      color: var(--pilcrow-strong);
+      background-color: transparent;
+    }
+  }
+  @media print {
+    display: none;
+  }
+}
+
+/* misc */
+hr {
+  border: 0;
+  border-top: 1px solid var(--line-color);
+}
+.bcp14 {
+  font-variant: small-caps;
+  font-weight: 600;
+  font-size: var(--small-font-size);
+}
+.role {
+  font-variant: all-small-caps;
+}
+sub, sup {
+  line-height: 1;
+  font-size: 80%;
+}
+
+/* info block */
+#identifiers {
+  margin: 0;
+  font-size: var(--small-font-size);
+  line-height: 18px;
+  --identifier-width: 15ch;
+  & dt {
+    width: var(--identifier-width);
+    min-width: var(--identifier-width);
+    clear: left;
+    float: left;
+    text-align: right;
+    margin-right: 1ch;
+  }
+  & dd {
+    margin: 0;
+    margin-left: calc(1em + var(--identifier-width)) !important;
+    min-width: 5em;
+  }
+  & .authors {
+    & .author {
+      display: inline-block;
+      margin-right: 1.5em;
+    }
+    & .org {
+      font-style: italic;
+    }
+  }
+}
+
+/* The prepared/rendered info at the very bottom of the page */
+.docInfo {
+  color: #999;
+  font-size: 0.9em;
+  font-style: italic;
+  margin-top: 2em;
+  & .prepared {
+    float: right;
+  }
+}
+
+/* table of contents */
+#toc {
+  padding: 0.75em 0 2em 0;
+  margin-bottom: 1em;
+
+  & nav {
+    & ul {
+      margin: 0 0.5em 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    & li {
+      line-height: 1.3em;
+      margin: 2px 0;
+      padding-left: 1.2em;
+      text-indent: -1.2em;
+    }
+  }
+  & a.xref {
+    white-space: normal;
+  }
+}
+
+.references {
+  & > dt {
+    text-align: right;
+    font-weight: bold;
+    min-width: 10ch;
+    margin-right: 1.5ch;
+    &:target::before {
+      content: "⇒";
+      margin: 0 10px 0 -25px;
+    }
+  }
+  & > dd {
+    margin-left: 12ch !important;
+    overflow: visible;
+    & .refInstance {
+      margin-bottom: 0.8em;
+    }
+    & .ascii {
+      margin-bottom: 0.25em;
+    }
+  }
+}
+
+#rfc\.index\.index + ul {
+  margin-left: 0;
+}
+
+/* authors */
+address.vcard {
+  font-style: normal;
+  max-width: 20em;
+  margin: 1em auto 1em 0;
+
+  & .nameRole {
+    font-weight: 700;
+    margin-left: 0;
+  }
+  & .label {
+    margin: 0.5em 0;
+  }
+  & .type {
+    display: none;
+  }
+  & .alternative-contact {
+    margin: 0.5em 0 0.25em 0;
+  }
+  & .non-ascii {
+    margin: 0 0 0 2em;
+  }
+  & div.left {
+    text-align: left;
+  }
+  & div.right {
+    text-align: right;
+  }
+}
+
+hr.addr {
+  border-top: 1px dashed;
+  margin: 0;
+  color: #ddd;
+  max-width: calc(100% - 16px);
+}
+@media (min-width: 500px) {
+  #authors-addresses {
+    & > section {
+      column-count: 2;
+      column-gap: 20px;
+    }
+    & > section > h2 {
+      column-span: all;
+    }
+    /* hack for break-inside: avoid-column */
+    & address {
+      display: inline-block;
+      break-inside: avoid-column;
+    }
+  }
+}
+
+/* Comments */
+.rfcEditorRemove {
+  & p:first-of-type {
+    font-style: italic;
+  }
+}
+.cref {
+  background-color: rgba(249, 232, 105, 0.3);
+  padding: 2px 4px;
+}
+.crefSource {
+  font-style: italic;
+}
+
+@media screen {
+  #toc {
+    & nav {
+      font-family: var(--font-title);
+      font-weight: 360;
+      & > ul { margin-bottom: 2em; }
+      & ul {
+        margin: 0 0 0 4px;
+        & :is(p, li) {
+          margin: 2px 0;
+        }
+      }
+    }
+    & a.toplink {
+      float: right;
+    }
+  }
+}
+@media not screen {
+  #toc a.toplink {
+    display: none;
+  }
+}
+
+
+/* TOC layout for smaller screens */
+@media screen and (max-width: 929px) {
+  #toc {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    padding: 1px 0 0 0;
+    margin: 0;
+    border-bottom: 1px solid #ccc;
+    opacity: 0.6;
+    & h2 {
+      margin: 0;
+      padding: 2px 0 2px 6px;
+      padding-right: 1em;
+      font-size: 18px;
+      line-height: 24px;
+      min-width: 190px;
+      text-align: right;
+      background-color: #444;
+      color: white;
+      cursor: pointer;
+      &::before { /* css hamburger */
+        float: right;
+        position: relative;
+        width: 1em;
+        height: 1px;
+        left: -164px;
+        margin: 8px 0 0 0;
+        background: white none repeat scroll 0 0;
+        box-shadow: 0 4px 0 0 white, 0 8px 0 0 white;
+        content: "";
+      }
+    }
+    & nav {
+      display: none;
+      background-color: var(--background-color);
+      padding: 0.5em 1em 1em;
+      overflow: auto;
+      overscroll-behavior: contain;
+      height: calc(100vh - 48px);
+      border-left: 1px solid #ddd;
+    }
+    &.active {
+      opacity: 1;
+      & nav { display: block; }
+    }
+    /* Make the collapsed ToC header render white on gray also when it's a link */
+    & h2 a,
+    & h2 a:is(:link, :focus, :hover),
+    & a.toplink,
+    & a.toplink:hover {
+      color: white;
+      background-color: #444;
+      text-decoration: none;
+    }
+    & a.toplink {
+      margin: 2px 0.5em 0;
+    }
+  }
+}
+
+/* TOC layout for wide screens */
+@media screen and (min-width: 930px) {
+  body {
+    padding-right: 360px;
+    padding-right: calc(min(180px + 20%, 500px));
+  }
+  #toc {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    right: calc(50vw - 480px);
+    width: 312px;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+    & h2 {
+      margin: 0;
+      padding: 0.25em 1em 1em 0;
+    }
+    & nav {
+      display: block;
+      height: calc(90vh - 84px);
+      bottom: 0;
+      padding: 0.5em 0 2em;
+      overflow: auto;
+      overscroll-behavior: contain;
+      scrollbar-width: thin;
+    }
+    & a.toplink {
+      margin: 8px 0.5em 0;
+    }
+  }
+  img { /* future proofing */
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* pagination */
+@media print {
+  body {
+    width: 100%;
+  }
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+  #n-copyright-notice {
+    border-bottom: none;
+  }
+  #toc {
+    page-break-before: always;
+    border-top: none;
+    padding-top: 0;
+  }
+  #n-introduction {
+    page-break-before: always;
+  }
+  figure, pre, .vcard {
+    page-break-inside: avoid;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+  :is(h2, h3, h4, h5, h6)+*, dd {
+    page-break-before: avoid;
+  }
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 10pt;
+  }
+  table {
+    border: 1px solid #ddd;
+  }
+  td {
+    border-top: 1px solid #ddd;
+  }
+}
+
+@page :first {
+  padding-top: 0;
+  @top-left {
+    content: normal;
+    border: none;
+  }
+  @top-center {
+    content: normal;
+    border: none;
+  }
+  @top-right {
+    content: normal;
+    border: none;
+  }
+}
+
+@page {
+  size: A4;
+  margin-bottom: 45mm;
+  padding-top: 20px;
+}
+
+/* Dark mode. */
+@media (prefers-color-scheme: dark) {
+:root {
+  --background-color: #121212;
+  --text-color: #f0f0f0;
+  --title-color: #fff;
+  --link-color: #4da4f0;
+  --highlight-color: #282828;
+  --line-color: #444;
+  --pilcrow-weak: #444;
+  --pilcrow-strong: #666;
+  scrollbar-color: #777 #333;
+}
+}
+
+/* SVG Trick: a prefix match works because only black and white are allowed */
+svg {
+  & :is([stroke="black"], [stroke^="#000"]) {
+    stroke: var(--text-color);
+  }
+  & :is([stroke="white"], [stroke^="#fff"]) {
+    stroke: var(--background-color);
+  }
+  & :is([fill="black"], [fill^="#000"], :not([fill])) {
+    fill: var(--text-color);
+  }
+  & :is([fill="white"], [fill^="#fff"]) {
+    fill: var(--background-color);
+  }
+}
+</style>
+
+</head>
+<body class="xml2rfc">
+<table class="ears">
+<thead><tr>
+<td class="left">Internet-Draft</td>
+<td class="center">nomcom-gender-representation</td>
+<td class="right">October 2026</td>
+</tr></thead>
+<tfoot><tr>
+<td class="left">Knodel &amp; Tarakiyee</td>
+<td class="center">Expires 6 April 2027</td>
+<td class="right">[Page]</td>
+</tr></tfoot>
+</table>
+<div id="external-metadata" class="document-information"></div>
+<div id="internal-metadata" class="document-information">
+<dl id="identifiers">
+<dt class="label-workgroup">Workgroup:</dt>
+<dd class="workgroup">Network Working Group</dd>
+<dt class="label-internet-draft">Internet-Draft:</dt>
+<dd class="internet-draft">draft-knodel-nomcom-gender-representation-latest</dd>
+<dt class="label-published">Published:</dt>
+<dd class="published">
+<time datetime="2026-10-03" class="published">3 October 2026</time>
+    </dd>
+<dt class="label-intended-status">Intended Status:</dt>
+<dd class="intended-status">Informational</dd>
+<dt class="label-expires">Expires:</dt>
+<dd class="expires"><time datetime="2027-04-06">6 April 2027</time></dd>
+<dt class="label-authors">Authors:</dt>
+<dd class="authors">
+<div class="author">
+      <div class="author-name">M. Knodel</div>
+<div class="org">NYU</div>
+</div>
+<div class="author">
+      <div class="author-name">T. Tarakiyee</div>
+<div class="org">Independent</div>
+</div>
+</dd>
+</dl>
+</div>
+<h1 id="title">Gender Representation in the IETF Nominating Committees</h1>
+<section id="section-abstract">
+      <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
+<p id="section-abstract-1">This document extends the existing limit on nomcom representation by organization (<span>[<a href="#RFC8713" class="cite xref">RFC8713</a>]</span>, Section 4.17) so that not all voting members of the IETF Nominating Committee (nomcom) belong to the same gender. It guarantees up to three voting seats to volunteers who opt into a self-declared pool, and changes the selection only in years when a plain random draw would seat fewer.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+</section>
+<section class="note rfcEditorRemove" id="section-note.1">
+      <h2 id="name-about-this-document">
+<a href="#name-about-this-document" class="section-name selfRef">About This Document</a>
+      </h2>
+<p id="section-note.1-1">This note is to be removed before publishing as an RFC.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
+<p id="section-note.1-2">
+        The latest revision of this draft can be found at <span><a href="https://mallory.github.io/nomcom-gender-representation/draft-knodel-nomcom-gender-representation.html">https://mallory.github.io/nomcom-gender-representation/draft-knodel-nomcom-gender-representation.html</a></span>.
+        Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-knodel-nomcom-gender-representation/">https://datatracker.ietf.org/doc/draft-knodel-nomcom-gender-representation/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
+<p id="section-note.1-3">Source for this draft and an issue tracker can be found at
+        <span><a href="https://github.com/mallory/nomcom-gender-representation">https://github.com/mallory/nomcom-gender-representation</a></span>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
+</section>
+<div id="status-of-memo">
+<section id="section-boilerplate.1">
+        <h2 id="name-status-of-this-memo">
+<a href="#name-status-of-this-memo" class="section-name selfRef">Status of This Memo</a>
+        </h2>
+<p id="section-boilerplate.1-1">
+        This Internet-Draft is submitted in full conformance with the
+        provisions of BCP 78 and BCP 79.<a href="#section-boilerplate.1-1" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.1-2">
+        Internet-Drafts are working documents of the Internet Engineering Task
+        Force (IETF). Note that other groups may also distribute working
+        documents as Internet-Drafts. The list of current Internet-Drafts is
+        at <span><a href="https://datatracker.ietf.org/drafts/current/">https://datatracker.ietf.org/drafts/current/</a></span>.<a href="#section-boilerplate.1-2" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.1-3">
+        Internet-Drafts are draft documents valid for a maximum of six months
+        and may be updated, replaced, or obsoleted by other documents at any
+        time. It is inappropriate to use Internet-Drafts as reference
+        material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.1-4">
+        This Internet-Draft will expire on 6 April 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="copyright">
+<section id="section-boilerplate.2">
+        <h2 id="name-copyright-notice">
+<a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
+        </h2>
+<p id="section-boilerplate.2-1">
+            Copyright (c) 2026 IETF Trust and the persons identified as the
+            document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.2-2">
+            This document is subject to BCP 78 and the IETF Trust's Legal
+            Provisions Relating to IETF Documents
+            (<span><a href="https://trustee.ietf.org/license-info">https://trustee.ietf.org/license-info</a></span>) in effect on the date of
+            publication of this document. Please review these documents
+            carefully, as they describe your rights and restrictions with
+            respect to this document. Code Components extracted from this
+            document must include Revised BSD License text as described in
+            Section 4.e of the Trust Legal Provisions and are provided without
+            warranty as described in the Revised BSD License.<a href="#section-boilerplate.2-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="toc">
+<section id="section-toc.1">
+        <a href="#" onclick="scroll(0,0)" class="toplink">▲</a><h2 id="name-table-of-contents">
+<a href="#name-table-of-contents" class="section-name selfRef">Table of Contents</a>
+        </h2>
+<nav class="toc"><ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
+            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction" class="internal xref">Introduction</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
+            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-conventions-and-definitions" class="internal xref">Conventions and Definitions</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
+            <p id="section-toc.1-1.3.1" class="keepWithNext"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-gender-representation-in-th" class="internal xref">Gender Representation in the IETF Nomcom</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-suggested-remedy" class="internal xref">Suggested Remedy</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-opt-in-pool" class="internal xref">Opt-in Pool</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
+                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-guaranteed-seats" class="internal xref">Guaranteed Seats</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.3">
+                <p id="section-toc.1-1.4.2.3.1"><a href="#section-4.3" class="auto internal xref">4.3</a>.  <a href="#name-selection" class="internal xref">Selection</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.4">
+                <p id="section-toc.1-1.4.2.4.1"><a href="#section-4.4" class="auto internal xref">4.4</a>.  <a href="#name-rationale" class="internal xref">Rationale</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-privacy-considerations" class="internal xref">Privacy Considerations</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-references" class="internal xref">References</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.1">
+                <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="auto internal xref">8.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.2">
+                <p id="section-toc.1-1.8.2.2.1"><a href="#section-8.2" class="auto internal xref">8.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
+            <p id="section-toc.1-1.9.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
+            <p id="section-toc.1-1.10.1"><a href="#appendix-B" class="auto internal xref">Appendix B</a>.  <a href="#name-changes" class="internal xref">Changes</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
+            <p id="section-toc.1-1.11.1"><a href="#appendix-C" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+</li>
+        </ul>
+</nav>
+</section>
+</div>
+<div id="introduction">
+<section id="section-1">
+      <h2 id="name-introduction">
+<a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
+      </h2>
+<p id="section-1-1">The nomcom is, in every functional sense, a hiring committee: it solicits candidates, reviews their qualifications, interviews them, and selects who will fill the IETF's most senior leadership roles.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-2">This document extends <span>[<a href="#RFC8713" class="cite xref">RFC8713</a>]</span>'s limit on nomcom representation by organization to ensure no nomcom is ever composed of one gender. Like the limit by organization, this is to avoid the appearance of improper bias in choosing IETF leadership: a random draw is representative over many years, but in any single year it can seat a committee drawn from one gender.<a href="#section-1-2" class="pilcrow">¶</a></p>
+<p id="section-1-3">This document does not address the nomcom's comportment once seated. A future revision might extend <span>[<a href="#RFC8713" class="cite xref">RFC8713</a>]</span> with conduct standards for non-discrimination, personal conflict of interest, and consistent candidate evaluation, drawing on precedent such as ICANN's Nominating Committee Code of Conduct <span>[<a href="#ICANNCoC" class="cite xref">ICANNCoC</a>]</span>.<a href="#section-1-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="conventions-and-definitions">
+<section id="section-2">
+      <h2 id="name-conventions-and-definitions">
+<a href="#section-2" class="section-number selfRef">2. </a><a href="#name-conventions-and-definitions" class="section-name selfRef">Conventions and Definitions</a>
+      </h2>
+<p id="section-2-1">The key words "<span class="bcp14">MUST</span>", "<span class="bcp14">MUST NOT</span>", "<span class="bcp14">REQUIRED</span>", "<span class="bcp14">SHALL</span>", "<span class="bcp14">SHALL NOT</span>", "<span class="bcp14">SHOULD</span>", "<span class="bcp14">SHOULD NOT</span>", "<span class="bcp14">RECOMMENDED</span>", "<span class="bcp14">NOT RECOMMENDED</span>",
+"<span class="bcp14">MAY</span>", and "<span class="bcp14">OPTIONAL</span>" in this document are to be interpreted as
+described in BCP 14 <span>[<a href="#RFC2119" class="cite xref">RFC2119</a>]</span> <span>[<a href="#RFC8174" class="cite xref">RFC8174</a>]</span> when, and only when, they
+appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶</a></p>
+<p id="section-2-2">"Dominant gender" means the gender named as such by the nomcom chair in the call for volunteers, based on the composition of past nomcoms. At the time of writing it is men.<a href="#section-2-2" class="pilcrow">¶</a></p>
+<p id="section-2-3">"General pool" means all eligible volunteers in a given year, including those in the opt-in pool. "Opt-in pool" means the pool defined in Section 4.1.<a href="#section-2-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="gender-representation-in-the-ietf-nomcom">
+<section id="section-3">
+      <h2 id="name-gender-representation-in-th">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-gender-representation-in-th" class="section-name selfRef">Gender Representation in the IETF Nomcom</a>
+      </h2>
+<p id="section-3-1"><span>[<a href="#RFC8713" class="cite xref">RFC8713</a>]</span> already limits nomcom representation by organization: Section 4.17 provides that no more than two voting volunteers may share the same primary affiliation. This safeguard addresses one axis of nomcom capture and imbalance, but it does not address gender.<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-2">The IETF considers influence and weaknesses in nomcom selection in <span>[<a href="#RFC8713" class="cite xref">RFC8713</a>]</span>. The rationale for the two-per-organization limit, as documented in the "Oral Tradition" appendix of <span>[<a href="#RFC8713" class="cite xref">RFC8713</a>]</span>, is to avoid the appearance of improper bias in choosing IETF leadership: rather than defining precise rules for what counts as "affiliation," the IETF community relies on the honor and integrity of participants to make the limit work in practice. Likewise, gender diversity in IETF leadership should be considered a community strengthening exercise insofar as gender diversity has been shown to lead to more productivity, creativity and reinforces a culture of respect and value for all participants. If we consider the nomcom as a "team", it will itself benefit from having more gender diversity among its voting members.<a href="#section-3-2" class="pilcrow">¶</a></p>
+<p id="section-3-3">The nomcom itself conventionally asks candidates some form of the question, 'Describe your perspective on what diversity should mean for the IETF, and the degree to which existing IETF participation meets those expectations. What have you done in the past to encourage participation by those who might otherwise not have considered engaging with the IETF?' implying diversity is regarded in the IETF.<a href="#section-3-3" class="pilcrow">¶</a></p>
+<p id="section-3-4">Five of the twelve nomcoms seated between 2015 and 2026 had no women among their voting members. To address gender representation in the IETF nomcom, at a minimum we can ensure that all voting members are not of the same gender. All attempts to ensure gender representation in the nomcom should include:
+    a. increase participation in the community from women and non-binary individuals so that the eligible pool is more gender diverse.
+    b. encourage eligible women and non-binary members of the community to accept selection to the nomcom.<a href="#section-3-4" class="pilcrow">¶</a></p>
+<p id="section-3-5">While the IETF does not routinely confirm the gender of volunteers, it measures gender diversity through its annual community survey, in which women were under 10% of respondents in 2025 <span>[<a href="#IETFSurvey2025" class="cite xref">IETFSurvey2025</a>]</span>. The IETF LLC commissioned an independent report on the experience of women participating in the IETF <span>[<a href="#Kaeo2023" class="cite xref">Kaeo2023</a>]</span>, and IETF leadership has stated its commitment to gender diversity and reported on steps taken in response <span>[<a href="#IESGFollowUp2024" class="cite xref">IESGFollowUp2024</a>]</span>.<a href="#section-3-5" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="suggested-remedy">
+<section id="section-4">
+      <h2 id="name-suggested-remedy">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-suggested-remedy" class="section-name selfRef">Suggested Remedy</a>
+      </h2>
+<p id="section-4-1">Section 4.17 of <span>[<a href="#RFC8713" class="cite xref">RFC8713</a>]</span> constrains nomcom composition by primary affiliation. This document adds a second composition constraint, applied at the same point in the process, in the form of a guaranteed minimum number of seats for volunteers in an opt-in pool.<a href="#section-4-1" class="pilcrow">¶</a></p>
+<div id="opt-in-pool">
+<section id="section-4.1">
+        <h3 id="name-opt-in-pool">
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-opt-in-pool" class="section-name selfRef">Opt-in Pool</a>
+        </h3>
+<p id="section-4.1-1">An eligible volunteer (<span>[<a href="#RFC8713" class="cite xref">RFC8713</a>]</span>, as updated by <span>[<a href="#RFC9389" class="cite xref">RFC9389</a>]</span>) <span class="bcp14">MAY</span> opt into a self-declared pool of volunteers who do not identify as members of the dominant gender (the "opt-in pool"). The opt-in pool is defined by self-identification alone. Membership in the opt-in pool is the only information disclosed. Every volunteer in the opt-in pool is also in the general pool.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="guaranteed-seats">
+<section id="section-4.2">
+        <h3 id="name-guaranteed-seats">
+<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-guaranteed-seats" class="section-name selfRef">Guaranteed Seats</a>
+        </h3>
+<p id="section-4.2-1">Let p be the size of the opt-in pool. The number of guaranteed seats is r = min(3, p): three, or the whole opt-in pool if it has fewer than three members.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
+<p id="section-4.2-2">If p is 0, no seats are guaranteed, and the IETF community <span class="bcp14">MUST</span> be notified that all voting volunteers may share one gender that year for this reason.<a href="#section-4.2-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="selection">
+<section id="section-4.3">
+        <h3 id="name-selection">
+<a href="#section-4.3" class="section-number selfRef">4.3. </a><a href="#name-selection" class="section-name selfRef">Selection</a>
+        </h3>
+<p id="section-4.3-1">A single <span>[<a href="#RFC3797" class="cite xref">RFC3797</a>]</span> selection <span class="bcp14">MUST</span> be run over the published general pool list, which <span class="bcp14">MUST</span> show which volunteers are in the opt-in pool.<a href="#section-4.3-1" class="pilcrow">¶</a></p>
+<p id="section-4.3-2">Volunteers are seated in list order, subject to the limit in Section 4.17 of <span>[<a href="#RFC8713" class="cite xref">RFC8713</a>]</span>, with one exception: once the number of unfilled seats equals the number of guaranteed seats not yet held by opt-in pool members, only opt-in pool members are seated. If no opt-in pool member who can be seated remains on the list, the exception lapses and the remaining seats are filled in list order, starting with any volunteers it passed over.<a href="#section-4.3-2" class="pilcrow">¶</a></p>
+<p id="section-4.3-3">If a seated volunteer is later replaced under <span>[<a href="#RFC8713" class="cite xref">RFC8713</a>]</span>, the same rule applies to the choice of replacement.<a href="#section-4.3-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="rationale">
+<section id="section-4.4">
+        <h3 id="name-rationale">
+<a href="#section-4.4" class="section-number selfRef">4.4. </a><a href="#name-rationale" class="section-name selfRef">Rationale</a>
+        </h3>
+<p id="section-4.4-1">The selection is a single <span>[<a href="#RFC3797" class="cite xref">RFC3797</a>]</span> draw over a list published in advance. Opt-in pool membership is part of that list, so no seat depends on information absent from it and the outcome remains independently verifiable. A rule that depended on volunteers' genders would not have this property: it would either break verifiability, if that data is private, or force disclosure.<a href="#section-4.4-1" class="pilcrow">¶</a></p>
+<p id="section-4.4-2">The guarantee is a minimum, not an addition: it takes effect only when a plain draw would seat fewer than r opt-in pool members, and otherwise the outcome is that of the plain draw. As the opt-in pool approaches half of all volunteers the guarantee almost never takes effect (about 5% of draws at parity), so nothing needs to change if a different gender becomes dominant.<a href="#section-4.4-2" class="pilcrow">¶</a></p>
+<p id="section-4.4-3">When the pool is skewed, the minimum of three is deliberately super-proportional. The literature on tokenism finds that members of a small minority in a deliberative body carry a visibility burden and are treated as representatives of a category rather than as individuals <span>[<a href="#Kanter1977" class="cite xref">Kanter1977</a>]</span>. Studies of corporate boards report that this changes at around three members (<span>[<a href="#KonradKramerErkut2008" class="cite xref">KonradKramerErkut2008</a>]</span>, <span>[<a href="#Torchia2011" class="cite xref">Torchia2011</a>]</span>). These are studies of standing boards, not selection committees, and a fixed threshold is contested <span>[<a href="#ChildsKrook2008" class="cite xref">ChildsKrook2008</a>]</span>; three is used here as a practical minimum. Volunteers seated under the guarantee serve as individuals and do not represent a gender.<a href="#section-4.4-3" class="pilcrow">¶</a></p>
+<p id="section-4.4-4">Stratification by declared characteristics is established practice in bodies constituted by lot <span>[<a href="#OECD2020" class="cite xref">OECD2020</a>]</span>, and compositional constraints are the norm rather than the exception among comparable nominating bodies: ICANN's Nominating Committee is constituted from designated seats <span>[<a href="#ICANNBylaws" class="cite xref">ICANNBylaws</a>]</span>.<a href="#section-4.4-4" class="pilcrow">¶</a></p>
+<p id="section-4.4-5">This section would update Sections 4.16 and 4.17 of <span>[<a href="#RFC8713" class="cite xref">RFC8713</a>]</span>. Section 4.16 calls a selection method fair "if each eligible volunteer is equally likely to be selected". The affiliation limit already qualifies that definition, and this document would qualify it further: volunteers remain equally likely to be selected within the opt-in pool and within the rest of the general pool. The method remains unbiased in the sense of Section 4.16: once the list is published, no one can influence the outcome.<a href="#section-4.4-5" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="privacy-considerations">
+<section id="section-5">
+      <h2 id="name-privacy-considerations">
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-privacy-considerations" class="section-name selfRef">Privacy Considerations</a>
+      </h2>
+<p id="section-5-1">Serving on the nomcom is voluntary. Public disclosure of one's gender and pronouns in the IETF Datatracker should remain voluntary. Disclosure of one's gender during meeting registration for the purposes of tracking community diversity should remain voluntary and non-public.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-2">Under Section 4, no volunteer is asked to state a gender, and no gender is inferred from pronouns used in mailing list discussion, recorded meetings, or the Datatracker. The only disclosure is opt-in pool membership.<a href="#section-5-2" class="pilcrow">¶</a></p>
+<p id="section-5-3">Because <span>[<a href="#RFC3797" class="cite xref">RFC3797</a>]</span> verifiability requires the list to be published in advance, membership in the opt-in pool is public. It stays public: the list is archived, and membership can be compiled across years. Volunteers <span class="bcp14">MUST</span> be told this at the point of declaration. For some volunteers, opt-in pool membership may reveal more about them than they have otherwise made public. Gender data collected for community measurement, whether at meeting registration or in the Datatracker, <span class="bcp14">MUST NOT</span> be used to construct the opt-in pool.<a href="#section-5-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="security-considerations">
+<section id="section-6">
+      <h2 id="name-security-considerations">
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+      </h2>
+<p id="section-6-1">Self-declaration is not verified. The challenge period in Section 4.17 of <span>[<a href="#RFC8713" class="cite xref">RFC8713</a>]</span> still applies to the selection, but a challenge cannot rest on a volunteer's declaration. As with the affiliation limit, the mechanism relies on the honour and integrity of participants rather than on precise rules.<a href="#section-6-1" class="pilcrow">¶</a></p>
+<p id="section-6-2">When the opt-in pool is small, its members are far more likely to be seated than other volunteers, and when it has three or fewer members all of them are seated, subject to the affiliation limit. This is an incentive to declare, including for organizations seeking seats, though the affiliation limit bounds what any one organization can gain.<a href="#section-6-2" class="pilcrow">¶</a></p>
+<p id="section-6-3">A small opt-in pool may also mean the same volunteers serve repeatedly. Sitting nomcom members cannot be considered for the positions that nomcom fills (<span>[<a href="#RFC8713" class="cite xref">RFC8713</a>]</span>, Section 5.11), so frequent service has a cost for those volunteers and for the pool of candidates.<a href="#section-6-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="iana-considerations">
+<section id="section-7">
+      <h2 id="name-iana-considerations">
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+      </h2>
+<p id="section-7-1">This document has no IANA actions.<a href="#section-7-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="sec-combined-references">
+<section id="section-8">
+      <h2 id="name-references">
+<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-references" class="section-name selfRef">References</a>
+      </h2>
+<div id="sec-normative-references">
+<section id="section-8.1">
+        <h3 id="name-normative-references">
+<a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+        </h3>
+<dl class="references">
+<dt id="RFC2119">[RFC2119]</dt>
+        <dd>
+<span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC3797">[RFC3797]</dt>
+        <dd>
+<span class="refAuthor">Eastlake 3rd, D.</span>, <span class="refTitle">"Publicly Verifiable Nominations Committee (NomCom) Random Selection"</span>, <span class="seriesInfo">RFC 3797</span>, <span class="seriesInfo">DOI 10.17487/RFC3797</span>, <time datetime="2004-06" class="refDate">June 2004</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc3797">https://www.rfc-editor.org/rfc/rfc3797</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8174">[RFC8174]</dt>
+      <dd>
+<span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+</dl>
+</section>
+</div>
+<div id="sec-informative-references">
+<section id="section-8.2">
+        <h3 id="name-informative-references">
+<a href="#section-8.2" class="section-number selfRef">8.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+        </h3>
+<dl class="references">
+<dt id="ChildsKrook2008">[ChildsKrook2008]</dt>
+        <dd>
+<span class="refAuthor">Childs, S.</span> and <span class="refAuthor">M. L. Krook</span>, <span class="refTitle">"Critical Mass Theory and Women's Political Representation"</span>, <span class="seriesInfo">Political Studies 56(3), pp. 725-736</span>, <time datetime="2008" class="refDate">2008</time>, <span>&lt;<a href="https://mlkrook.org/pdf/childs_krook_2008.pdf">https://mlkrook.org/pdf/childs_krook_2008.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="ICANNBylaws">[ICANNBylaws]</dt>
+        <dd>
+<span class="refAuthor">ICANN</span>, <span class="refTitle">"ICANN Bylaws, Article 8, Section 8.2 (Nominating Committee composition)"</span>, <time datetime="2024" class="refDate">2024</time>, <span>&lt;<a href="https://www.icann.org/resources/pages/governance/bylaws-en/#article8">https://www.icann.org/resources/pages/governance/bylaws-en/#article8</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="ICANNCoC">[ICANNCoC]</dt>
+        <dd>
+<span class="refAuthor">ICANN</span>, <span class="refTitle">"ICANN Nominating Committee Background Information and Code of Conduct"</span>, <time datetime="2018" class="refDate">2018</time>, <span>&lt;<a href="https://www.icann.org/resources/pages/nomcom2019-conduct-2018-12-07-en">https://www.icann.org/resources/pages/nomcom2019-conduct-2018-12-07-en</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="IESGFollowUp2024">[IESGFollowUp2024]</dt>
+        <dd>
+<span class="refAuthor">Danyliw, R.</span>, <span class="refTitle">"Follow-up to the 'Experience of Women Participating in the IETF' Report"</span>, <time datetime="2024-11-07" class="refDate">7 November 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/meeting/121/materials/slides-121-systers-sessb-follow-up-to-the-experience-of-women-participating-in-the-ietf-report-00">https://datatracker.ietf.org/meeting/121/materials/slides-121-systers-sessb-follow-up-to-the-experience-of-women-participating-in-the-ietf-report-00</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="IETFSurvey2025">[IETFSurvey2025]</dt>
+        <dd>
+<span class="refAuthor">Daley, J.</span> and <span class="refAuthor">A. Gohil</span>, <span class="refTitle">"IETF Community Survey 2025"</span>, <time datetime="2026-07-14" class="refDate">14 July 2026</time>, <span>&lt;<a href="https://www.ietf.org/blog/ietf-community-survey-2025/">https://www.ietf.org/blog/ietf-community-survey-2025/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Kaeo2023">[Kaeo2023]</dt>
+        <dd>
+<span class="refAuthor">Kaeo, M.</span>, <span class="refTitle">"Experience of Women Participating in the IETF"</span>, <time datetime="2023-10" class="refDate">October 2023</time>, <span>&lt;<a href="https://www.ietf.org/media/documents/Experience_of_Women_Participating_in_the_IETF.pdf">https://www.ietf.org/media/documents/Experience_of_Women_Participating_in_the_IETF.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Kanter1977">[Kanter1977]</dt>
+        <dd>
+<span class="refAuthor">Kanter, R. M.</span>, <span class="refTitle">"Some Effects of Proportions on Group Life: Skewed Sex Ratios and Responses to Token Women"</span>, <span class="seriesInfo">American Journal of Sociology 82(5), pp. 965-990</span>, <time datetime="1977" class="refDate">1977</time>, <span>&lt;<a href="https://doi.org/10.1086/226425">https://doi.org/10.1086/226425</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="KonradKramerErkut2008">[KonradKramerErkut2008]</dt>
+        <dd>
+<span class="refAuthor">Konrad, A. M.</span>, <span class="refAuthor">Kramer, V. W.</span>, and <span class="refAuthor">S. Erkut</span>, <span class="refTitle">"Critical Mass: The Impact of Three or More Women on Corporate Boards"</span>, <span class="seriesInfo">Organizational Dynamics 37(2), pp. 145-164</span>, <time datetime="2008" class="refDate">2008</time>, <span>&lt;<a href="https://doi.org/10.1016/j.orgdyn.2008.02.005">https://doi.org/10.1016/j.orgdyn.2008.02.005</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="OECD2020">[OECD2020]</dt>
+        <dd>
+<span class="refAuthor">OECD</span>, <span class="refTitle">"Innovative Citizen Participation and New Democratic Institutions: Catching the Deliberative Wave"</span>, <time datetime="2020" class="refDate">2020</time>, <span>&lt;<a href="https://doi.org/10.1787/339306da-en">https://doi.org/10.1787/339306da-en</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8713">[RFC8713]</dt>
+        <dd>
+<span class="refAuthor">Kucherawy, M., Ed.</span>, <span class="refAuthor">Hinden, R., Ed.</span>, and <span class="refAuthor">J. Livingood, Ed.</span>, <span class="refTitle">"IAB, IESG, IETF Trust, and IETF LLC Selection, Confirmation, and Recall Process: Operation of the IETF Nominating and Recall Committees"</span>, <span class="seriesInfo">BCP 10</span>, <span class="seriesInfo">RFC 8713</span>, <span class="seriesInfo">DOI 10.17487/RFC8713</span>, <time datetime="2020-02" class="refDate">February 2020</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8713">https://www.rfc-editor.org/rfc/rfc8713</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC9389">[RFC9389]</dt>
+        <dd>
+<span class="refAuthor">Duke, M.</span>, <span class="refTitle">"Nominating Committee Eligibility"</span>, <span class="seriesInfo">BCP 10</span>, <span class="seriesInfo">RFC 9389</span>, <span class="seriesInfo">DOI 10.17487/RFC9389</span>, <time datetime="2023-04" class="refDate">April 2023</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9389">https://www.rfc-editor.org/rfc/rfc9389</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Torchia2011">[Torchia2011]</dt>
+      <dd>
+<span class="refAuthor">Torchia, M.</span>, <span class="refAuthor">Calabro, A.</span>, and <span class="refAuthor">M. Huse</span>, <span class="refTitle">"Women Directors on Corporate Boards: From Tokenism to Critical Mass"</span>, <span class="seriesInfo">Journal of Business Ethics 102, pp. 299-317</span>, <time datetime="2011" class="refDate">2011</time>, <span>&lt;<a href="https://doi.org/10.1007/s10551-011-0815-z">https://doi.org/10.1007/s10551-011-0815-z</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+</dl>
+</section>
+</div>
+</section>
+</div>
+<div id="acknowledgments">
+<section id="appendix-A">
+      <h2 id="name-acknowledgments">
+<a href="#appendix-A" class="section-number selfRef">Appendix A. </a><a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
+      </h2>
+<p id="appendix-A-1">Thanks to Martin Thomson and Suresh Krishnan for informed initial thoughts on bringing this idea to the community. The selection rule in Section 4.3 follows a suggestion by Joel Halpern. Thanks to Brian Carpenter, Stephen Farrell, Bron Gondwana, Russ Housley, Christian Huitema, Ted Lemon, John Levine, S. Moonesamy, Mark Nottingham, Michael Richardson, Rich Salz, Michael StJohns, Andrew Sullivan and Rob Wilton for review and comments on the eligibility-discuss list.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="changes">
+<section id="appendix-B">
+      <h2 id="name-changes">
+<a href="#appendix-B" class="section-number selfRef">Appendix B. </a><a href="#name-changes" class="section-name selfRef">Changes</a>
+      </h2>
+<p id="appendix-B-1">This section is to be removed before publishing as an RFC.<a href="#appendix-B-1" class="pilcrow">¶</a></p>
+<p id="appendix-B-2">Since -04:<a href="#appendix-B-2" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="appendix-B-3.1">
+          <p id="appendix-B-3.1.1">Replaced the two-draw reserved-seat formula with a single draw and a guaranteed minimum of three seats, which takes effect only when a plain draw would seat fewer.<a href="#appendix-B-3.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-B-3.2">
+          <p id="appendix-B-3.2.1">Volunteers in the opt-in pool are always in the general pool; "mixed gender pool" is no longer used.<a href="#appendix-B-3.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-B-3.3">
+          <p id="appendix-B-3.3.1">The nomcom chair names the dominant gender in the call for volunteers.<a href="#appendix-B-3.3.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-B-3.4">
+          <p id="appendix-B-3.4.1">Replaced the hiring-literature rationale in the Introduction with the rationale <span>[<a href="#RFC8713" class="cite xref">RFC8713</a>]</span> gives for the affiliation limit.<a href="#appendix-B-3.4.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-B-3.5">
+          <p id="appendix-B-3.5.1">Sourced the statements in Section 3 about measuring gender diversity.<a href="#appendix-B-3.5.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-B-3.6">
+          <p id="appendix-B-3.6.1">Qualified the evidence for a minimum of three.<a href="#appendix-B-3.6.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-B-3.7">
+          <p id="appendix-B-3.7.1">Noted that the mechanism would also update the fairness definition in Section 4.16 of <span>[<a href="#RFC8713" class="cite xref">RFC8713</a>]</span>.<a href="#appendix-B-3.7.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-B-3.8">
+          <p id="appendix-B-3.8.1">Expanded Privacy and Security Considerations: permanence of the published list, challenges, the incentive to declare, repeat service.<a href="#appendix-B-3.8.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+</section>
+</div>
+<div id="authors-addresses">
+<section id="appendix-C">
+      <h2 id="name-authors-addresses">
+<a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
+      </h2>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Mallory Knodel</span></div>
+<div dir="auto" class="left"><span class="org">NYU</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:mallory.knodel@nyu.edu" class="email">mallory.knodel@nyu.edu</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Tara Tarakiyee</span></div>
+<div dir="auto" class="left"><span class="org">Independent</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:me@tarakiyee.com" class="email">me@tarakiyee.com</a>
+</div>
+</address>
+</section>
+</div>
+<script>const toc = document.getElementById("toc");
+toc.querySelector("h2").addEventListener("click", e => {
+  toc.classList.toggle("active");
+});
+toc.querySelector("nav").addEventListener("click", e => {
+  toc.classList.remove("active");
+});
+</script>
+</body>
+</html>
