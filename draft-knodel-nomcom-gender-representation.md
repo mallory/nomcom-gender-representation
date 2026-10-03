@@ -12,14 +12,14 @@ consensus: true
 v: 3
 
 area: GENART
-workgroup: 
+workgroup:
 keyword:
  - gender
 venue:
-  group: 
-  type: 
-  mail: 
-  arch: 
+  group:
+  type:
+  mail:
+  arch:
   github: "mallory/nomcom-gender-representation"
   latest: "https://mallory.github.io/nomcom-gender-representation/draft-knodel-nomcom-gender-representation.html"
 
@@ -44,6 +44,27 @@ informative:
 
   RFC8713:
   RFC9389:
+  IETFSurvey2025:
+    target: https://www.ietf.org/blog/ietf-community-survey-2025/
+    title: IETF Community Survey 2025
+    author:
+      -
+        ins: J. Daley
+      -
+        ins: A. Gohil
+    date: 2026-07-14
+  Kaeo2023:
+    target: https://www.ietf.org/media/documents/Experience_of_Women_Participating_in_the_IETF.pdf
+    title: Experience of Women Participating in the IETF
+    author:
+      ins: M. Kaeo
+    date: 2023-10
+  IESGFollowUp2024:
+    target: https://datatracker.ietf.org/meeting/121/materials/slides-121-systers-sessb-follow-up-to-the-experience-of-women-participating-in-the-ietf-report-00
+    title: "Follow-up to the 'Experience of Women Participating in the IETF' Report"
+    author:
+      ins: R. Danyliw
+    date: 2024-11-07
   ICANNCoC:
     target: https://www.icann.org/resources/pages/nomcom2019-conduct-2018-12-07-en
     title: ICANN Nominating Committee Background Information and Code of Conduct
@@ -56,12 +77,6 @@ informative:
     author:
       org: ICANN
     date: 2024
-  Bohnet2016:
-    target: https://hbr.org/2016/04/how-to-take-the-bias-out-of-interviews
-    title: How to Take the Bias Out of Interviews
-    author:
-      ins: I. Bohnet
-    date: 2016
   Kanter1977:
     target: https://doi.org/10.1086/226425
     title: "Some Effects of Proportions on Group Life: Skewed Sex Ratios and Responses to Token Women"
@@ -116,7 +131,7 @@ informative:
 
 --- abstract
 
-This document extends the existing limit on nomcom representation by organization ([RFC8713], Section 4.17) so that not all voting members of the IETF Nominating Committee (nomcom) belong to the same gender.
+This document extends the existing limit on nomcom representation by organization ([RFC8713], Section 4.17) so that not all voting members of the IETF Nominating Committee (nomcom) belong to the same gender. It guarantees up to three voting seats to volunteers who opt into a self-declared pool, and changes the selection only in years when a plain random draw would seat fewer.
 
 --- middle
 
@@ -124,7 +139,7 @@ This document extends the existing limit on nomcom representation by organizatio
 
 The nomcom is, in every functional sense, a hiring committee: it solicits candidates, reviews their qualifications, interviews them, and selects who will fill the IETF's most senior leadership roles.
 
-This document extends [RFC8713]'s limit on nomcom representation by organization to ensure no nomcom is ever composed of one gender. This is because the literature supports the claims that lack of gender diversity in hiring teams reinforces under representation of gender minorities in leadership positions and that lack of gender diversity in leadership perpetuates gender discrimination [Bohnet2016].
+This document extends [RFC8713]'s limit on nomcom representation by organization to ensure no nomcom is ever composed of one gender. Like the limit by organization, this is to avoid the appearance of improper bias in choosing IETF leadership: a random draw is representative over many years, but in any single year it can seat a committee drawn from one gender.
 
 This document does not address the nomcom's comportment once seated. A future revision might extend [RFC8713] with conduct standards for non-discrimination, personal conflict of interest, and consistent candidate evaluation, drawing on precedent such as ICANN's Nominating Committee Code of Conduct [ICANNCoC].
 
@@ -132,7 +147,9 @@ This document does not address the nomcom's comportment once seated. A future re
 
 {::boilerplate bcp14-tagged}
 
-"Dominant gender" means the gender held by the majority of eligible nomcom volunteers in a given year. "Opt-in pool" means the pool defined in Section 4.1.
+"Dominant gender" means the gender named as such by the nomcom chair in the call for volunteers, based on the composition of past nomcoms. At the time of writing it is men.
+
+"General pool" means all eligible volunteers in a given year, including those in the opt-in pool. "Opt-in pool" means the pool defined in Section 4.1.
 
 # Gender Representation in the IETF Nomcom
 
@@ -142,52 +159,61 @@ The IETF considers influence and weaknesses in nomcom selection in [RFC8713]. Th
 
 The nomcom itself conventionally asks candidates some form of the question, 'Describe your perspective on what diversity should mean for the IETF, and the degree to which existing IETF participation meets those expectations. What have you done in the past to encourage participation by those who might otherwise not have considered engaging with the IETF?' implying diversity is regarded in the IETF.
 
-To address gender representation in the IETF nomcom, at a minimum we can ensure that all voting members are not of the same gender. All attempts to ensure gender representation in the nomcom should include:
+Five of the twelve nomcoms seated between 2015 and 2026 had no women among their voting members. To address gender representation in the IETF nomcom, at a minimum we can ensure that all voting members are not of the same gender. All attempts to ensure gender representation in the nomcom should include:
     a. increase participation in the community from women and non-binary individuals so that the eligible pool is more gender diverse.
     b. encourage eligible women and non-binary members of the community to accept selection to the nomcom.
 
-While the IETF does not routinely confirm the gender of volunteers, we have committed to improving gender diversity in the community by way of measuring it and identifying concrete steps to mitigate imbalance.
+While the IETF does not routinely confirm the gender of volunteers, it measures gender diversity through its annual community survey, in which women were under 10% of respondents in 2025 [IETFSurvey2025]. The IETF LLC commissioned an independent report on the experience of women participating in the IETF [Kaeo2023], and IETF leadership has stated its commitment to gender diversity and reported on steps taken in response [IESGFollowUp2024].
 
 # Suggested Remedy
 
-Section 4.17 of [RFC8713] constrains nomcom composition by primary affiliation. This document adds a second composition constraint, applied at the same point in the process, in the form of a stratified selection over two pools, a mixed gender pool and an opt-in non-dominant genders pool.
+Section 4.17 of [RFC8713] constrains nomcom composition by primary affiliation. This document adds a second composition constraint, applied at the same point in the process, in the form of a guaranteed minimum number of seats for volunteers in an opt-in pool.
 
 ## Opt-in Pool
 
-An eligible volunteer MAY opt into a self-declared pool of volunteers who do not identify as members of the dominant gender (the "opt-in pool"). Membership in the opt-in pool is the only information disclosed. Volunteers in the opt-in pool may also opt into the mixed gender pool.
+An eligible volunteer ([RFC8713], as updated by [RFC9389]) MAY opt into a self-declared pool of volunteers who do not identify as members of the dominant gender (the "opt-in pool"). The opt-in pool is defined by self-identification alone. Membership in the opt-in pool is the only information disclosed. Every volunteer in the opt-in pool is also in the general pool.
 
-## Reserved Seats
+## Guaranteed Seats
 
-Let n be the number of voting volunteer slots, p the size of the opt-in pool, and t the size of the mixed gender pool. The number of reserved seats r is determined as follows:
+Let p be the size of the opt-in pool. The number of guaranteed seats is r = min(3, p): three, or the whole opt-in pool if it has fewer than three members.
 
-- If p is 0, no seats are reserved, and the IETF community MUST be notified that all n voting volunteers may share one gender that year for this reason.
-- Otherwise, r = min(p, max(3, min(floor(n/2), floor(n * p / t)))).
+If p is 0, no seats are guaranteed, and the IETF community MUST be notified that all voting volunteers may share one gender that year for this reason.
 
 ## Selection
 
-The r reserved seats MUST be selected first, by an [RFC3797] selection over the published opt-in pool list. The remaining n - r seats MUST then be selected by a second [RFC3797] selection over the general pool, excluding volunteers already selected. Both selections MAY use the same publicly announced seed material and be conducted as a single ceremony. The limit in Section 4.17 of [RFC8713] continues to apply across both selections.
+A single [RFC3797] selection MUST be run over the published general pool list, which MUST show which volunteers are in the opt-in pool.
+
+Volunteers are seated in list order, subject to the limit in Section 4.17 of [RFC8713], with one exception: once the number of unfilled seats equals the number of guaranteed seats not yet held by opt-in pool members, only opt-in pool members are seated. If no opt-in pool member who can be seated remains on the list, the exception lapses and the remaining seats are filled in list order, starting with any volunteers it passed over.
+
+If a seated volunteer is later replaced under [RFC8713], the same rule applies to the choice of replacement.
 
 ## Rationale
 
-Each selection is an ordinary [RFC3797] draw over a list published in advance, and no seat is conditional on information absent from that list, so every seat remains independently verifiable. A rule that skips candidates mid-draw does not have this property: it requires volunteers' genders to be known at selection time, which either breaks verifiability if that data is private or forces disclosure if it is not.
+The selection is a single [RFC3797] draw over a list published in advance. Opt-in pool membership is part of that list, so no seat depends on information absent from it and the outcome remains independently verifiable. A rule that depended on volunteers' genders would not have this property: it would either break verifiability, if that data is private, or force disclosure.
 
-The proportional cap ensures the mechanism never produces a composition the volunteer pool does not already support. It removes the variance of a flat draw rather than adding preference. The floor of three is deliberately super-proportional when the pool is skewed. The literature on tokenism finds that a lone minority member of a deliberative body carries a visibility burden and is treated as a category representative rather than as an individual [Kanter1977], and that this shifts at around three members [KonradKramerErkut2008] [Torchia2011]. 
+The guarantee is a minimum, not an addition: it takes effect only when a plain draw would seat fewer than r opt-in pool members, and otherwise the outcome is that of the plain draw. As the opt-in pool approaches half of all volunteers the guarantee almost never takes effect (about 5% of draws at parity), so nothing needs to change if a different gender becomes dominant.
 
-Stratified selection over declared strata is established practice in bodies constituted by lot [OECD2020], and compositional constraints are the norm rather than the exception among comparable nominating bodies: ICANN's Nominating Committee is constituted from designated seats [ICANNBylaws].
+When the pool is skewed, the minimum of three is deliberately super-proportional. The literature on tokenism finds that members of a small minority in a deliberative body carry a visibility burden and are treated as representatives of a category rather than as individuals [Kanter1977]. Studies of corporate boards report that this changes at around three members ([KonradKramerErkut2008], [Torchia2011]). These are studies of standing boards, not selection committees, and a fixed threshold is contested [ChildsKrook2008]; three is used here as a practical minimum. Volunteers seated under the guarantee serve as individuals and do not represent a gender.
 
-This section would update Section 4.17 of [RFC8713].
+Stratification by declared characteristics is established practice in bodies constituted by lot [OECD2020], and compositional constraints are the norm rather than the exception among comparable nominating bodies: ICANN's Nominating Committee is constituted from designated seats [ICANNBylaws].
+
+This section would update Sections 4.16 and 4.17 of [RFC8713]. Section 4.16 calls a selection method fair "if each eligible volunteer is equally likely to be selected". The affiliation limit already qualifies that definition, and this document would qualify it further: volunteers remain equally likely to be selected within the opt-in pool and within the rest of the general pool. The method remains unbiased in the sense of Section 4.16: once the list is published, no one can influence the outcome.
 
 # Privacy Considerations
 
-Serving on the nomcom is voluntary. Public disclosure of one's gender and pronouns in the IETF Datatracker should remain voluntary. Disclosure of one's gender during meeting registration for the purposes of tracking communty diversity should remain voluntary and non-public.
+Serving on the nomcom is voluntary. Public disclosure of one's gender and pronouns in the IETF Datatracker should remain voluntary. Disclosure of one's gender during meeting registration for the purposes of tracking community diversity should remain voluntary and non-public.
 
 Under Section 4, no volunteer is asked to state a gender, and no gender is inferred from pronouns used in mailing list discussion, recorded meetings, or the Datatracker. The only disclosure is opt-in pool membership.
 
-Because [RFC3797] verifiability requires each pool to be published in advance, membership in the opt-in pool is public. Volunteers MUST be told this at the point of declaration. Gender data collected for community measurement, whether at meeting registration or in the Datatracker, MUST NOT be used to construct the opt-in pool.
+Because [RFC3797] verifiability requires the list to be published in advance, membership in the opt-in pool is public. It stays public: the list is archived, and membership can be compiled across years. Volunteers MUST be told this at the point of declaration. For some volunteers, opt-in pool membership may reveal more about them than they have otherwise made public. Gender data collected for community measurement, whether at meeting registration or in the Datatracker, MUST NOT be used to construct the opt-in pool.
 
 # Security Considerations
 
-Self-declaration is not verified. As with the affiliation limit in Section 4.17 of [RFC8713], the mechanism relies on the honour and integrity of participants rather than on precise rules.
+Self-declaration is not verified. The challenge period in Section 4.17 of [RFC8713] still applies to the selection, but a challenge cannot rest on a volunteer's declaration. As with the affiliation limit, the mechanism relies on the honour and integrity of participants rather than on precise rules.
+
+When the opt-in pool is small, its members are far more likely to be seated than other volunteers, and when it has three or fewer members all of them are seated, subject to the affiliation limit. This is an incentive to declare, including for organizations seeking seats, though the affiliation limit bounds what any one organization can gain.
+
+A small opt-in pool may also mean the same volunteers serve repeatedly. Sitting nomcom members cannot be considered for the positions that nomcom fills ([RFC8713], Section 5.11), so frequent service has a cost for those volunteers and for the pool of candidates.
 
 # IANA Considerations
 
@@ -197,4 +223,18 @@ This document has no IANA actions.
 
 # Acknowledgments
 
-Thanks to Martin Thomson and Suresh Krishnan for informed initial thoughts on bringing this idea to the community.
+Thanks to Martin Thomson and Suresh Krishnan for informed initial thoughts on bringing this idea to the community. The selection rule in Section 4.3 follows a suggestion by Joel Halpern. Thanks to Brian Carpenter, Stephen Farrell, Bron Gondwana, Russ Housley, Christian Huitema, Ted Lemon, John Levine, S. Moonesamy, Mark Nottingham, Michael Richardson, Rich Salz, Michael StJohns, Andrew Sullivan and Rob Wilton for review and comments on the eligibility-discuss list.
+
+# Changes
+{:removeinrfc}
+
+Since -04:
+
+- Replaced the two-draw reserved-seat formula with a single draw and a guaranteed minimum of three seats, which takes effect only when a plain draw would seat fewer.
+- Volunteers in the opt-in pool are always in the general pool; "mixed gender pool" is no longer used.
+- The nomcom chair names the dominant gender in the call for volunteers.
+- Replaced the hiring-literature rationale in the Introduction with the rationale [RFC8713] gives for the affiliation limit.
+- Sourced the statements in Section 3 about measuring gender diversity.
+- Qualified the evidence for a minimum of three.
+- Noted that the mechanism would also update the fairness definition in Section 4.16 of [RFC8713].
+- Expanded Privacy and Security Considerations: permanence of the published list, challenges, the incentive to declare, repeat service.
