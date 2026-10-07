@@ -131,7 +131,7 @@ informative:
 
 --- abstract
 
-This document extends the existing limit on nomcom representation by organization ([RFC8713], Section 4.17) so that not all voting members of the IETF Nominating Committee (nomcom) belong to the same gender. It guarantees up to three voting seats to volunteers who opt into a self-declared pool, and changes the selection only in years when a plain random draw would seat fewer.
+This document extends the existing limit on nomcom representation by organization ([RFC8713], Section 4.17) so that not all voting members of the IETF Nominating Committee (nomcom) belong to the same gender. It guarantees up to five voting seats to volunteers who opt into a self-declared pool, and changes the selection only in years when a plain random draw would seat fewer.
 
 --- middle
 
@@ -171,11 +171,15 @@ Section 4.17 of [RFC8713] constrains nomcom composition by primary affiliation. 
 
 ## Opt-in Pool
 
+The nomcom chair MUST name the dominant gender, as defined in Section 2, in the call for volunteers.
+
 An eligible volunteer ([RFC8713], as updated by [RFC9389]) MAY opt into a self-declared pool of volunteers who do not identify as members of the dominant gender (the "opt-in pool"). The opt-in pool is defined by self-identification alone. Membership in the opt-in pool is the only information disclosed. Every volunteer in the opt-in pool is also in the general pool.
+
+A volunteer who opts in by mistake MAY correct the declaration at any time before the general pool list is published. Once published, opt-in pool membership is fixed, consistent with the verifiability requirement in Section 4.3.
 
 ## Guaranteed Seats
 
-Let p be the size of the opt-in pool. The number of guaranteed seats is r = min(3, p): three, or the whole opt-in pool if it has fewer than three members.
+Let p be the size of the opt-in pool. The number of guaranteed seats is r = min(5, p): five, or the whole opt-in pool if it has fewer than five members.
 
 If p is 0, no seats are guaranteed, and the IETF community MUST be notified that all voting volunteers may share one gender that year for this reason.
 
@@ -185,6 +189,8 @@ A single [RFC3797] selection MUST be run over the published general pool list, w
 
 Volunteers are seated in list order, subject to the limit in Section 4.17 of [RFC8713], with one exception: once the number of unfilled seats equals the number of guaranteed seats not yet held by opt-in pool members, only opt-in pool members are seated. If no opt-in pool member who can be seated remains on the list, the exception lapses and the remaining seats are filled in list order, starting with any volunteers it passed over.
 
+For example, take a nomcom with eleven voting seats, an opt-in pool of one volunteer (so r = min(5, 1) = 1), and a published general pool list, in draw order, that begins V1 through V10 and then, in position 15, the single opt-in pool member Z. Seats 1 through 10 are filled by V1 through V10 in order; no exception applies yet, since the one guaranteed seat is not yet held and more than one seat remains unfilled. Before the eleventh seat, one seat is unfilled and one guaranteed seat is not yet held, so the exception applies: V11 through V14 are passed over, and Z is seated in the eleventh seat.
+
 If a seated volunteer is later replaced under [RFC8713], the same rule applies to the choice of replacement.
 
 ## Rationale
@@ -193,7 +199,7 @@ The selection is a single [RFC3797] draw over a list published in advance. Opt-i
 
 The guarantee is a minimum, not an addition: it takes effect only when a plain draw would seat fewer than r opt-in pool members, and otherwise the outcome is that of the plain draw. As the opt-in pool approaches half of all volunteers the guarantee almost never takes effect (about 5% of draws at parity), so nothing needs to change if a different gender becomes dominant.
 
-When the pool is skewed, the minimum of three is deliberately super-proportional. The literature on tokenism finds that members of a small minority in a deliberative body carry a visibility burden and are treated as representatives of a category rather than as individuals [Kanter1977]. Studies of corporate boards report that this changes at around three members ([KonradKramerErkut2008], [Torchia2011]). These are studies of standing boards, not selection committees, and a fixed threshold is contested [ChildsKrook2008]; three is used here as a practical minimum. Volunteers seated under the guarantee serve as individuals and do not represent a gender.
+When the pool is skewed, the guarantee is deliberately super-proportional. The literature on tokenism finds that members of a small minority in a deliberative body carry a visibility burden and are treated as representatives of a category rather than as individuals [Kanter1977]. Studies of corporate boards report that this changes at around three members ([KonradKramerErkut2008], [Torchia2011]). These are studies of standing boards, not selection committees, and a fixed threshold is contested [ChildsKrook2008]; while three bears out in the evidence as a floor below which the effect is most acute, we set five as the cap because it approaches parity for a nomcom with eleven seats. Volunteers seated under the guarantee serve as individuals and do not represent a gender.
 
 Stratification by declared characteristics is established practice in bodies constituted by lot [OECD2020], and compositional constraints are the norm rather than the exception among comparable nominating bodies: ICANN's Nominating Committee is constituted from designated seats [ICANNBylaws].
 
@@ -211,7 +217,7 @@ Because [RFC3797] verifiability requires the list to be published in advance, me
 
 Self-declaration is not verified. The challenge period in Section 4.17 of [RFC8713] still applies to the selection, but a challenge cannot rest on a volunteer's declaration. As with the affiliation limit, the mechanism relies on the honour and integrity of participants rather than on precise rules.
 
-When the opt-in pool is small, its members are far more likely to be seated than other volunteers, and when it has three or fewer members all of them are seated, subject to the affiliation limit. This is an incentive to declare, including for organizations seeking seats, though the affiliation limit bounds what any one organization can gain.
+When the opt-in pool is small, its members are far more likely to be seated than other volunteers, and when it has five or fewer members all of them are seated, subject to the affiliation limit. This is an incentive to declare, including for organizations seeking seats, though the affiliation limit bounds what any one organization can gain.
 
 A small opt-in pool may also mean the same volunteers serve repeatedly. Sitting nomcom members cannot be considered for the positions that nomcom fills ([RFC8713], Section 5.11), so frequent service has a cost for those volunteers and for the pool of candidates.
 
@@ -227,6 +233,13 @@ Thanks to Martin Thomson and Suresh Krishnan for informed initial thoughts on br
 
 # Changes
 {:removeinrfc}
+
+Since -05:
+
+- Raised the guaranteed-seat cap from three to five (r = min(5, p)).
+- Made the nomcom chair's duty to name the dominant gender in the call for volunteers an explicit requirement in Section 4.1.
+- Added a procedure for correcting an erroneous opt-in declaration before the general pool list is published.
+- Added a worked example of the selection procedure.
 
 Since -04:
 
