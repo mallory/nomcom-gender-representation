@@ -5,8 +5,8 @@
 Network Working Group                                          M. Knodel
 Internet-Draft                                                       NYU
 Intended status: Informational                              T. Tarakiyee
-Expires: 10 April 2027                                       Independent
-                                                          7 October 2026
+Expires: 23 April 2027                                       Independent
+                                                         20 October 2026
 
 
         Gender Representation in the IETF Nominating Committees
@@ -17,7 +17,7 @@ Abstract
    This document extends the existing limit on nomcom representation by
    organization ([RFC8713], Section 4.17) so that not all voting members
    of the IETF Nominating Committee (nomcom) belong to the same gender.
-   It guarantees up to five voting seats to volunteers who opt into a
+   It guarantees up to three voting seats to volunteers who opt into a
    self-declared pool, and changes the selection only in years when a
    plain random draw would seat fewer.
 
@@ -49,7 +49,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 10 April 2027.
+   This Internet-Draft will expire on 23 April 2027.
 
 Copyright Notice
 
@@ -93,8 +93,8 @@ Table of Contents
 
    This document extends [RFC8713]'s limit on nomcom representation by
    organization to ensure no nomcom is ever composed of one gender.
-   Like the limit by organization, this is to avoid the appearance of
-   improper bias in choosing IETF leadership: a random draw is
+   Like the limit by organization, this is to avoid bias, and the
+   appearance thereof, in choosing IETF leadership: a random draw is
    representative over many years, but in any single year it can seat a
    committee drawn from one gender.
 
@@ -193,8 +193,8 @@ Table of Contents
 4.2.  Guaranteed Seats
 
    Let p be the size of the opt-in pool.  The number of guaranteed seats
-   is r = min(5, p): five, or the whole opt-in pool if it has fewer than
-   five members.
+   is r = min(3, p): three, or the whole opt-in pool if it has fewer
+   than three members.
 
    If p is 0, no seats are guaranteed, and the IETF community MUST be
    notified that all voting volunteers may share one gender that year
@@ -214,7 +214,7 @@ Table of Contents
    with any volunteers it passed over.
 
    For example, take a nomcom with eleven voting seats, an opt-in pool
-   of one volunteer (so r = min(5, 1) = 1), and a published general pool
+   of one volunteer (so r = min(3, 1) = 1), and a published general pool
    list, in draw order, that begins V1 through V10 and then, in position
    15, the single opt-in pool member Z.  Seats 1 through 10 are filled
    by V1 through V10 in order; no exception applies yet, since the one
@@ -250,10 +250,8 @@ Table of Contents
    this changes at around three members ([KonradKramerErkut2008],
    [Torchia2011]).  These are studies of standing boards, not selection
    committees, and a fixed threshold is contested [ChildsKrook2008];
-   while three bears out in the evidence as a floor below which the
-   effect is most acute, we set five as the cap because it approaches
-   parity for a nomcom with eleven seats.  Volunteers seated under the
-   guarantee serve as individuals and do not represent a gender.
+   three is used here as a practical minimum.  Volunteers seated under
+   the guarantee serve as individuals and do not represent a gender.
 
    Stratification by declared characteristics is established practice in
    bodies constituted by lot [OECD2020], and compositional constraints
@@ -301,7 +299,7 @@ Table of Contents
    of participants rather than on precise rules.
 
    When the opt-in pool is small, its members are far more likely to be
-   seated than other volunteers, and when it has five or fewer members
+   seated than other volunteers, and when it has three or fewer members
    all of them are seated, subject to the affiliation limit.  This is an
    incentive to declare, including for organizations seeking seats,
    though the affiliation limit bounds what any one organization can
@@ -419,8 +417,6 @@ Appendix B.  Changes
 
    Since -05:
 
-   *  Raised the guaranteed-seat cap from three to five (r = min(5, p)).
-
    *  Made the nomcom chair's duty to name the dominant gender in the
       call for volunteers an explicit requirement in Section 4.1.
 
@@ -428,6 +424,9 @@ Appendix B.  Changes
       before the general pool list is published.
 
    *  Added a worked example of the selection procedure.
+
+   *  Clarified in the Introduction that the goal is to avoid bias, not
+      just its appearance.
 
    Since -04:
 
