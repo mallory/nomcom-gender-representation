@@ -234,12 +234,17 @@ Thanks to Martin Thomson and Suresh Krishnan for informed initial thoughts on br
 # Changes
 {:removeinrfc}
 
+Since -06:
+
+- Returned the guaranteed-seat cap to three (r = min(3, p)), reverting the change made in -06.
+- Clarified in the Introduction that the goal is to avoid bias, not just its appearance.
+
 Since -05:
 
+- Raised the guaranteed-seat cap from three to five (r = min(5, p)).
 - Made the nomcom chair's duty to name the dominant gender in the call for volunteers an explicit requirement in Section 4.1.
 - Added a procedure for correcting an erroneous opt-in declaration before the general pool list is published.
 - Added a worked example of the selection procedure.
-- Clarified in the Introduction that the goal is to avoid bias, not just its appearance.
 
 Since -04:
 
